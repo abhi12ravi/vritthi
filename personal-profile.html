@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Personal Profile - Vritthi</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <script src='js/Chart.min.js'></script>
+
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">VRITTHI</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">About Us</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">About Us</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <h3 class="header center orange-text">Personal Profile</h3>
+
+  
+    <div class="container col s4 offset-s4 center">
+      <canvas id="personality" width="600" height="400"></canvas>      
+    </div>
+
+    
+
+    <div id="js-legend" class="chart-legend">
+      <ul class="doughnut-legend">
+        <li><span style="background-color:#F7464A"></span>Adaptability</li>
+        <li><span style="background-color:#46BFBD"></span>Team spirit</li>
+        <li><span style="background-color:#FDB45C"></span>Communication</li>
+      </ul>
+    </div>
+
+
+ 
+
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  <script>
+      Chart.defaults.global.responsive = true;
+      //Chart.defaults.global.maintainAspectRatio = false;
+
+
+      var personalityData = [
+          {
+              value: 50,
+              color:"#F7464A",
+              highlight: "#FF5A5E",
+              label: "Adaptability",
+          },
+          {
+              value: 20,
+              color: "#46BFBD",
+              highlight: "#5AD3D1",
+              label: "Team spirit"
+          },
+          {
+              value: 30,
+              color: "#FDB45C",
+              highlight: "#FFC870",
+              label: "Communication"
+          }
+      ]
+
+      
+
+      var options = {
+          segmentShowStroke: false,
+          animateRotate: true,
+          animateScale: false,
+          percentageInnerCutout: 50,
+          tooltipTemplate: "<%= value %>% <%= label %>"
+      }
+
+
+
+
+      var personality = document.getElementById("personality").getContext("2d");
+      var personalityChart = new Chart(personality).Doughnut(personalityData, options);
+
+      document.getElementById('js-legend').innerHTML = personalityChart.generateLegend();
+
+
+      
+
+      
+
+  </script>
+  </body>
+</html>
