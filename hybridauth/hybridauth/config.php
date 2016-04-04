@@ -9,7 +9,7 @@
 //	HybridAuth Config file: http://hybridauth.sourceforge.net/userguide/Configuration.html
 // ----------------------------------------------------------------------------------------
 $config =array(
-		"base_url" => "http://hayageek.com/examples/oauth/hybridauth/hybridauth/index.php", 
+		"base_url" => "http://vritthi-abhi12ravi.rhcloud.com/hybridauth/hybridauth/index.php", 
 		"providers" => array ( 
 
 			"Google" => array ( 
@@ -24,7 +24,7 @@ $config =array(
 
 			"Twitter" => array ( 
 				"enabled" => true,
-				"keys"    => array ( "key" => "XXXXXXXX", "secret" => "XXXXXXX" ) 
+				"keys"    => array ( "key" => "2WiquT7nJqNy5cJjpRGeLthYB", "secret" => "h2TUkP8k8q41jwQDpYISZnGMFTEwI8e1hhRD13Iz0HD3Fh1pxS" ) 
 			),
 		),
 		// if you want to enable logging, set 'debug_mode' to true  then provide a writable file by the web server on "debug_file"
