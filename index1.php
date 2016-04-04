@@ -185,7 +185,6 @@
         //todo when the OAuth flow failed
         alert ('Github error: ' + err);
       });
-
       
     }
     
