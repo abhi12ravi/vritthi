@@ -31,6 +31,10 @@
                              echo $item->user->displayName . ": " . $item->text . "<hr />";
                           }
 
+                        $response = $twitter->api()->get( 'statuses/user_timeline.json?screen_name=twitterapi&count=2' );
+                        echo "User statuses:".$response."<br>";
+
+
 	        }	        
 
 			}
