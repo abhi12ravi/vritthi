@@ -20,7 +20,8 @@
 	        	echo "<b>Profile URL</b> :".$user_profile->profileURL."<br>";
 	        	echo "<b>Image</b> :".$user_profile->photoURL."<br> ";
 	        	echo "<img src='".$user_profile->photoURL."'/><br>";
-	        	echo "<b>Email</b> :".$user_profile->email."<br>";	        		        		        	
+	        	echo "<b>Email</b> :".$user_profile->email."<br>";	
+                        echo "<b>User profile variable:".$user_profile."<br>";       		        		        	
 	        	echo "<br> <a href='logout.php'>Logout</a>";
 	        }	        
 
