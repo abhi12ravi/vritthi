@@ -27,11 +27,11 @@
 	        	echo "<br> <a href='logout.php'>Logout</a>";
 
                         //iterate over timeline
-                        foreach( $user_timeline as $item ){
-                             echo $item->user->displayName . ": " . $item->text . "<hr />";
-                          }
+                        // foreach( $user_timeline as $item ){
+                        //      echo $item->user->displayName . ": " . $item->text . "<hr />";
+                        //   }
 
-                        $response = $twitter->api()->get( 'statuses/user_timeline.json?screen_name=twitterapi&count=2' );
+                        $response = $authProvider->api()->get( 'statuses/user_timeline');
                         echo "User statuses:".$response."<br>";
 
 
