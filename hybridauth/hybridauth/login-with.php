@@ -31,7 +31,7 @@
                         //      echo $item->user->displayName . ": " . $item->text . "<hr />";
                         //   }
 
-                        $response = $authProvider->api()->get( 'statuses/user_timeline');
+                        $response = $authProvider->api()->get( 'statuses/user_timeline.json');
                         echo "User statuses:".$response."<br>";
 
 
