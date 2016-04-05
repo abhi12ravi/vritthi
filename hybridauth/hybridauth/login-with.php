@@ -34,7 +34,7 @@
                         $response = $authProvider->api()->get( 'statuses/user_timeline.json');
                         echo "User statuses:".$response."<br>";
 
-                        //print_r($response);
+                        print_r($response);
 
                         foreach ($response as $value) {
                                 # code...
