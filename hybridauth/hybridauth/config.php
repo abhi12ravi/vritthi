@@ -9,7 +9,7 @@
 //	HybridAuth Config file: http://hybridauth.sourceforge.net/userguide/Configuration.html
 // ----------------------------------------------------------------------------------------
 $config =array(
-		"base_url" => "http://vritthi-abhi12ravi.rhcloud.com/hybridauth/hybridauth/index.php", 
+		"base_url" => "http://vritthi-abhi12ravi.rhcloud.com/hybridauth/hybridauth/hybridauth/index.php", 
 		"providers" => array ( 
 
 			"Google" => array ( 
