@@ -12,6 +12,8 @@
         	
         	$authProvider = $hybridauth->authenticate($provider);
 
+                $user_timeline = $authProvider->getUserActivity( "timeline" );
+
 	        $user_profile = $authProvider->getUserProfile();
 	        
 			if($user_profile && isset($user_profile->identifier))
@@ -21,8 +23,14 @@
 	        	echo "<b>Image</b> :".$user_profile->photoURL."<br> ";
 	        	echo "<img src='".$user_profile->photoURL."'/><br>";
 	        	echo "<b>Email</b> :".$user_profile->email."<br>";	
-                        echo "<b>User profile variable:".$user_profile."<br>";       		        		        	
+                        //echo "<b>User profile variable:".$user_profile."<br>";       		        		        	
 	        	echo "<br> <a href='logout.php'>Logout</a>";
+
+                        //iterate over timeline
+                        foreach( $user_timeline as $item ){
+                             echo $item->user->displayName . ": " . $item->text . "<hr />";
+                          }
+
 	        }	        
 
 			}
