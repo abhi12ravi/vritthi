@@ -36,10 +36,15 @@
 
                         print_r($response);
 
-                        foreach ($response as $value) {
-                                # code...
-                                echo $response->text . ": " . "<hr />";
-                        }
+                        $keys = array_keys($response);
+
+                        for($i = 0; $i < count($response); $i++) {
+                            echo $keys[$i] . "{<br>";
+                            foreach($response[$keys[$i]] as $key => $value) {
+                                echo $key . " : " . $value . "<br>";
+                            }
+                            echo "}<br>";
+                    }
 
 	        }	        
 
