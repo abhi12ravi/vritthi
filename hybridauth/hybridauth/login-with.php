@@ -34,17 +34,13 @@
                         $response = $authProvider->api()->get( 'statuses/user_timeline.json');
                         echo "User statuses:".$response."<br>";
 
-                        print_r($response);
+                        //print_r($response);
 
-                        $keys = array_keys($response);
 
-                        for($i = 0; $i < count($response); $i++) {
-                            echo $keys[$i] . "{<br>";
-                            foreach($response[$keys[$i]] as $key => $value) {
-                                echo $key . " : " . $value . "<br>";
-                            }
-                            echo "}<br>";
-                    }
+                        foreach ($response as $value) {
+                                # code...
+                                echo $value['text'] . ": " . "<hr />";
+                        }
 
 	        }	        
 
