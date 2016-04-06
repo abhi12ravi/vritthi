@@ -35,6 +35,8 @@
                         echo "User statuses:".$response."<br>";
 
                         //print_r($response);
+                        echo "Type of response variable:";
+                        print_r(gettype($response));
 
 
                         foreach ($response as $value) {
