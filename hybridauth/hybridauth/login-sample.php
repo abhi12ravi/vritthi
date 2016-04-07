@@ -20,7 +20,7 @@
 	        {
 	        	echo "<div align='center'>
                 <h1>Login with Twitter</h1>   <a href='login-sample.php?provider=Twitter'><img src='twitter.png'></img></a> <img src='tick_16.png'></img><br><br>
-                </div>"
+                </div>";
 
 
 
