@@ -18,31 +18,11 @@
 	        
 			if($user_profile && isset($user_profile->identifier))
 	        {
-	        	echo "<b>Name</b> :".$user_profile->displayName."<br>";
-	        	echo "<b>Profile URL</b> :".$user_profile->profileURL."<br>";
-	        	echo "<b>Image</b> :".$user_profile->photoURL."<br> ";
-	        	echo "<img src='".$user_profile->photoURL."'/><br>";
-	        	echo "<b>Email</b> :".$user_profile->email."<br>";	
-                        //echo "<b>User profile variable:".$user_profile."<br>";       		        		        	
-	        	echo "<br> <a href='logout.php'>Logout</a>";
-
-                        //iterate over timeline
-                        // foreach( $user_timeline as $item ){
-                        //      echo $item->user->displayName . ": " . $item->text . "<hr />";
-                        //   }
-
-                        $response = $authProvider->api()->get( 'statuses/user_timeline.json');
-                        echo "User statuses:".$response."<br>";
-
-                        //print_r($response);
-                        echo "Type of response variable:";
-                        print_r(gettype($response));
+	        	echo "<div align='center'>
+                <h1>Login with Twitter</h1>   <a href='login-sample.php?provider=Twitter'><img src='twitter.png'></img></a> <img src='tick_16.png'></img><br><br>
+                </div>"
 
 
-                        foreach ($response as $value) {
-                                # code...
-                                echo $value['text'] . ": " . "<hr />";
-                        }
 
 	        }	        
 
