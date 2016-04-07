@@ -30,17 +30,23 @@
 
                 $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
                 if($db){
-                    echo "DB connection success!";
+                    echo "DB connection success! DB value=".$db;
 
                     $query = mysqli_query($db,"SELECT * FROM `users` WHERE oauth_uid = '$uid' and oauth_provider = '$oauth_provider'");
                     $result = mysqli_fetch_array($query,MYSQLI_ASSOC);
                     if (!empty($result)) {
                         # User is already present
+                        echo "Result value=".$result;
+
                     } else {
                         #user not present. Insert a new Record
                         $query = mysqli_query($db,"INSERT INTO `users` (oauth_provider, oauth_uid, username,email,twitter_oauth_token,twitter_oauth_token_secret) VALUES ('$oauth_provider', $uid, '$username','$email')");
+                        echo "Query value INSERT =".$query;                        
                         $query = mysqli_query($db,"SELECT * FROM `users` WHERE oauth_uid = '$uid' and oauth_provider = '$oauth_provider'");
+                        echo "Query value SELECT =".$query;
                         $result = mysqli_fetch_array($query,MYSQLI_ASSOC);
+                        echo "Result FETCH_ARRAY value=".$result;
+
                         return $result;
                     }
                     return $result;  
