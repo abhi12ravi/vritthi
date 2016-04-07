@@ -22,6 +22,33 @@
                 <h1>Login with Twitter</h1>   <a href='login-sample.php?provider=Twitter'><img src='twitter.png'></img></a> <img src='http://vritthi-abhi12ravi.rhcloud.com/img/tick_16.png'></img><br><br>
                 </div>";
 
+                define( "DB_SERVER", getenv('OPENSHIFT_MYSQL_DB_HOST'));
+                //define('DB_SERVER', 'localhost');
+                define('DB_USERNAME', 'adminDPUepnP');
+                define('DB_PASSWORD', '38E1d5whUcQE');
+                define('DB_DATABASE', 'vritthi');
+
+                $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+                if($db){
+                    echo "DB connection success!";
+
+                    $query = mysqli_query($db,"SELECT * FROM `users` WHERE oauth_uid = '$uid' and oauth_provider = '$oauth_provider'");
+                    $result = mysqli_fetch_array($query,MYSQLI_ASSOC);
+                    if (!empty($result)) {
+                        # User is already present
+                    } else {
+                        #user not present. Insert a new Record
+                        $query = mysqli_query($db,"INSERT INTO `users` (oauth_provider, oauth_uid, username,email,twitter_oauth_token,twitter_oauth_token_secret) VALUES ('$oauth_provider', $uid, '$username','$email')");
+                        $query = mysqli_query($db,"SELECT * FROM `users` WHERE oauth_uid = '$uid' and oauth_provider = '$oauth_provider'");
+                        $result = mysqli_fetch_array($query,MYSQLI_ASSOC);
+                        return $result;
+                    }
+                    return $result;  
+                }
+                else{
+                    echo "DB conn FAIL";
+                }
+
 
 
 	        }	        
