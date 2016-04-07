@@ -19,7 +19,7 @@
 			if($user_profile && isset($user_profile->identifier))
 	        {
 	        	echo "<div align='center'>
-                <h1>Login with Twitter</h1>   <a href='login-sample.php?provider=Twitter'><img src='twitter.png'></img></a> <img src='tick_16.png'></img><br><br>
+                <h1>Login with Twitter</h1>   <a href='login-sample.php?provider=Twitter'><img src='twitter.png'></img></a> <img src='http://vritthi-abhi12ravi.rhcloud.com/img/tick_16.png'></img><br><br>
                 </div>";
 
 
