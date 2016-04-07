@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+
+require 'db-functions.php';
+session_start();
+
+?>
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -43,7 +49,7 @@
       <div class="card-panel teal lighten-2 row center">
         <table>
           <tr>
-            <a class="waves-effect waves-light "><img src="img/sign-in-with-twitter.png"></a><br>
+            <a class="waves-effect waves-light" href="hybridauth/hybridauth/login-sample.php?provider=Twitter"><img src="img/sign-in-with-twitter.png" ></a><br>
           </tr>
           <tr>
             <button onclick="doSomething();"><a id="githubLogin" class="waves-effect waves-light "><img width="158"  src="img/GitHub_Logo.png"></a></button><br>
