@@ -46,11 +46,11 @@
                    $fetchExisting = "SELECT * from users WHERE email = '$userEmail'";
                    $resultFetch = $conn->query($fetchExisting);
 
-                   if ($resultFetch === TRUE) {
-                        echo "Fetch query ran successfully";
-                   } else {
-                        echo "Fetch query Error: " . $sql . "<br>" . $conn->error;
-                   }
+                   // if ($resultFetch === TRUE) {
+                   //      echo "Fetch query ran successfully";
+                   // } else {
+                   //      echo "Fetch query Error: " . $sql . "<br>" . $conn->error;
+                   // }
 
                    if (!empty($resultFetch)) {
                         //user already exists
