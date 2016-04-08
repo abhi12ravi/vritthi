@@ -4,62 +4,111 @@
         include('hybridauth/Hybrid/Auth.php');
         if(isset($_GET['provider']))
         {
-        	$provider = $_GET['provider'];
-        	
-        	try{
-        	
-        	$hybridauth = new Hybrid_Auth( $config );
-        	
-        	$authProvider = $hybridauth->authenticate($provider);
+        	$provider = $_GET['provider'];        	
+        	try{        	
+            	$hybridauth = new Hybrid_Auth( $config );
+            	
+            	$authProvider = $hybridauth->authenticate($provider);
 
                 $user_timeline = $authProvider->getUserActivity( "timeline" );
 
-	        $user_profile = $authProvider->getUserProfile();
-	        
-			if($user_profile && isset($user_profile->identifier))
-	        {
-	        	echo "<div align='center'>
-                <h1>Login with Twitter</h1>   <a href='login-sample.php?provider=Twitter'><img src='twitter.png'></img></a> <img src='http://vritthi-abhi12ravi.rhcloud.com/img/tick_16.png'></img><br><br>
-                </div>";
+    	        $user_profile = $authProvider->getUserProfile();
+    	        
+    			if($user_profile && isset($user_profile->identifier))
+    	        {
+    	        	echo "<div align='center'>
+                    <h1>Login with Twitter</h1>   <a href='login-sample.php?provider=Twitter'><img src='twitter.png'></img></a> <img src='http://vritthi-abhi12ravi.rhcloud.com/img/tick_16.png'></img><br><br>
+                    </div>";
 
-                define( "DB_SERVER", getenv('OPENSHIFT_MYSQL_DB_HOST'));
-                //define('DB_SERVER', 'localhost');
-                define('DB_USERNAME', 'adminDPUepnP');
-                define('DB_PASSWORD', '38E1d5whUcQE');
-                define('DB_DATABASE', 'vritthi');
+                    echo "<b>Name</b> :".$user_profile->displayName."<br>";
+                    echo "<b>Profile URL</b> :".$user_profile->profileURL."<br>";
+                    echo "<b>Image</b> :".$user_profile->photoURL."<br> ";
+                    echo "<img src='".$user_profile->photoURL."'/><br>";
+                    echo "<b>Email</b> :".$user_profile->email."<br>";  
+                            //echo "<b>User profile variable:".$user_profile."<br>";                                        
+                    echo "<br> <a href='logout.php'>Logout</a>";
 
-                $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
-                if($db){
-                    echo "DB connection success! DB value=".$db;
+                    $userName = $user_profile->displayName;
+                    $userEmail = $user_profile->email;
 
-                    $query = mysqli_query($db,"SELECT * FROM `users` WHERE oauth_uid = '$uid' and oauth_provider = '$oauth_provider'");
-                    $result = mysqli_fetch_array($query,MYSQLI_ASSOC);
-                    if (!empty($result)) {
-                        # User is already present
-                        echo "Result value=".$result;
+                   $servername = getenv('OPENSHIFT_MYSQL_DB_HOST');
+                   $username = "adminDPUepnP";
+                   $password = "38E1d5whUcQE";
+                   $dbname = "vritthi";
 
-                    } else {
+                   // Create connection
+                   $conn = new mysqli($servername, $username, $password, $dbname);
+                   // Check connection
+                   if ($conn->connect_error) {
+                       die("Connection failed: " . $conn->connect_error);
+                   } 
+
+                   $fetchExisting = "SELECT * from users WHERE email = '$userEmail'";
+                   $resultFetch = $conn->query($fetchExisting);
+
+                   if ($resultFetch === TRUE) {
+                        echo "Fetch query ran successfully";
+                   } else {
+                        echo "Fetch query Error: " . $sql . "<br>" . $conn->error;
+                   }
+
+                   if (!empty($resultFetch)) {
+                        //user already exists
+                       $row = $result->fetch_array(MYSQLI_ASSOC);
+                       printf ("%s (%s)\n", $row["firstname"], $row["email"]);
+
+                   } else {
                         #user not present. Insert a new Record
-                        $query = mysqli_query($db,"INSERT INTO `users` (oauth_provider, oauth_uid, username,email,twitter_oauth_token,twitter_oauth_token_secret) VALUES ('$oauth_provider', $uid, '$username','$email')");
-                        echo "Query value INSERT =".$query;                        
-                        $query = mysqli_query($db,"SELECT * FROM `users` WHERE oauth_uid = '$uid' and oauth_provider = '$oauth_provider'");
-                        echo "Query value SELECT =".$query;
-                        $result = mysqli_fetch_array($query,MYSQLI_ASSOC);
-                        echo "Result FETCH_ARRAY value=".$result;
+                        $insertNewUser = "INSERT INTO `users` (firstname, email) VALUES ('$userName', '$userEmail')";
+                        $resultNewUser = $conn->query($insertNewUser);
+                        if ($resultNewUser === TRUE) {
+                             echo "New record created successfully";
+                        } else {
+                             echo "Insert new user Error: " . $sql . "<br>" . $conn->error;
+                        }
 
-                        return $result;
-                    }
-                    return $result;  
-                }
-                else{
-                    echo "DB conn FAIL";
-                }
+                   }
+                   
 
+                   // $sql = "INSERT INTO users (firstname, secondname, email)
+                   // VALUES ('John', 'Doe', 'john@example.com')";
 
+                   // if ($conn->query($sql) === TRUE) {
+                   //     echo "New record created successfully";
+                   // } else {
+                   //     echo "Error: " . $sql . "<br>" . $conn->error;
+                   // }
 
-	        }	        
+                   $conn->close();
 
-			}
+                    // $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+                    // if($db){
+                    //     echo "DB connection success! DB value=".$db;
+
+                    //     $query = mysqli_query($db,"SELECT * FROM `users` WHERE oauth_uid = '$uid' and oauth_provider = '$oauth_provider'");
+                    //     $result = mysqli_fetch_array($query,MYSQLI_ASSOC);
+                    //     if (!empty($result)) {
+                    //         # User is already present
+                    //         echo "Result value=".$result;
+
+                    //     } else {
+                    //         #user not present. Insert a new Record
+                    //         $query = mysqli_query($db,"INSERT INTO `users` (oauth_provider, oauth_uid, username,email,twitter_oauth_token,twitter_oauth_token_secret) VALUES ('$oauth_provider', $uid, '$username','$email')");
+                    //         echo "Query value INSERT =".$query;                        
+                    //         $query = mysqli_query($db,"SELECT * FROM `users` WHERE oauth_uid = '$uid' and oauth_provider = '$oauth_provider'");
+                    //         echo "Query value SELECT =".$query;
+                    //         $result = mysqli_fetch_array($query,MYSQLI_ASSOC);
+                    //         echo "Result FETCH_ARRAY value=".$result;
+
+                    //         return $result;
+                    //     }
+                    //     return $result;  
+                    // }
+                    // else{
+                    //     echo "DB conn FAIL";
+                    // }
+               }
+	        }
 			catch( Exception $e )
 			{ 
 			
@@ -88,7 +137,6 @@
 
                 echo "<hr /><h3>Trace</h3> <pre>" . $e->getTraceAsString() . "</pre>";
 
-			}
-        
-        }
+			} 
+        }       
 ?>
