@@ -21,7 +21,14 @@
                     <h1>Login with Twitter</h1>   <a href='login-sample.php?provider=Twitter'><img src='twitter.png'></img></a> <img src='http://vritthi-abhi12ravi.rhcloud.com/img/tick_16.png'></img><br><br>
                     </div>";
 
-                    // $response1 = $authProvider->api()->get('users/show.json');
+                    $screenName = $user_profile->displayName;
+
+                    //$response1 = $authProvider->api()->get('users/show.json?screen_name=$screenName');
+
+                    $response1 = $authProvider->api()->get('users/show.json');
+                    echo "User details:".$response1."<br>";
+
+
 
                     // echo $response1;
 
