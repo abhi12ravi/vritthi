@@ -46,20 +46,15 @@
                             //echo "<b>User profile variable:".$user_profile."<br>";                                        
                     echo "<br> <a href='logout.php'>Logout</a>";
 
-                    $userStatuses = $authProvider->api()->get( 'statuses/user_timeline.json?screen_name='.$screenName.'&count=199' );
+                    $userStatuses = $authProvider->api()->get( 'statuses/user_timeline.json?screen_name='.$screenName.'&count=1' );
 
                     echo "<br>Var type of $userStatuses = ";
                     print_r(gettype($userStatuses));
                     echo "<br>";
                     
-                    foreach($userStatuses as $item) {
-                        echo $item['text'];
-                        
-                        // to know what's in $item
-                        echo '<pre>'; var_dump($item);
-                    }
+                    
 
-                    //print_r($userStatuses);
+                    print_r($userStatuses);
 
                     
                    
