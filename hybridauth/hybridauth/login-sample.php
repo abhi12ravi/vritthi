@@ -23,6 +23,8 @@
 
                     $response1 = $authProvider->api()->get('users/show.json');
 
+                    echo $response1;
+
                     $responseObj = json_decode($response1);
 
                     print_r($responseObj);
