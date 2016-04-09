@@ -63,12 +63,12 @@
                     foreach ($userStatuses as $key => $object) {
                         echo $object->text;
                         $allStatuses .= $object->text; // concatenates statuses to one string
-                        echo "<br>";
+                        echo "<hr>";
                     }
 
-                    echo "Displaying concatenated string = ";                 
+                    echo "<b> Displaying size of concatenated string = <b>";                 
 
-                    echo $allStatuses;
+                    echo strlen($allStatuses);
 
                     //print_r($userStatuses);
 
