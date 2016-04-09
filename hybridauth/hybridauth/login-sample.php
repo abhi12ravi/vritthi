@@ -34,11 +34,7 @@
                     print_r(gettype($response));
 
 
-                    foreach ($response as $value) {
-                            # code...
-                            echo $value;
-                    }
-
+                    var_dump($user_profile);
 
 
                     // echo $response1;
