@@ -21,13 +21,13 @@
                     <h1>Login with Twitter</h1>   <a href='login-sample.php?provider=Twitter'><img src='twitter.png'></img></a> <img src='http://vritthi-abhi12ravi.rhcloud.com/img/tick_16.png'></img><br><br>
                     </div>";
 
-                    $response1 = $authProvider->api()->get('users/show.json');
+                    // $response1 = $authProvider->api()->get('users/show.json');
 
-                    echo $response1;
+                    // echo $response1;
 
-                    $responseObj = json_decode($response1);
+                    // $responseObj = json_decode($response1);
 
-                    print_r($responseObj);
+                    // print_r($responseObj);
 
                     echo "<b>Name</b> :".$user_profile->displayName."<br>";
                     echo "<b>Profile URL</b> :".$user_profile->profileURL."<br>";
