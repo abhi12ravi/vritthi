@@ -46,7 +46,7 @@
                             //echo "<b>User profile variable:".$user_profile."<br>";                                        
                     echo "<br> <a href='logout.php'>Logout</a>";
 
-                    $userStatuses = $authProvider->api()->get( 'statuses/user_timeline.json?screen_name='.$screenName.'&count=2' );
+                    $userStatuses = $authProvider->api()->get( 'statuses/user_timeline.json?screen_name='.$screenName.'&count=20' );
 
                     print_r($userStatuses);
 
