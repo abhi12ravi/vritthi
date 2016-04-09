@@ -52,8 +52,12 @@
                     print_r(gettype($userStatuses));
                     echo "<br>";
                     
-                    var_dump(json_decode($userStatuses, true));
-
+                    foreach($userStatuses as $item) {
+                        echo $item['text'];
+                        
+                        // to know what's in $item
+                        echo '<pre>'; var_dump($item);
+                    }
 
                     //print_r($userStatuses);
 
