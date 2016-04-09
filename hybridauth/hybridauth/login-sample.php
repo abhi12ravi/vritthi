@@ -54,12 +54,7 @@
 
                      echo "Twitter texts = ";
                     
-                    foreach($userStatuses as $item) {
-                        echo $item[0]->text;
-                        
-                        // to know what's in $item
-                        echo '<pre>'; var_dump($item);
-                    }
+                    echo $userStatuses[0]->text;
 
                     print_r($userStatuses);
 
