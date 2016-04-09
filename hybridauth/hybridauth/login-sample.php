@@ -46,11 +46,15 @@
                             //echo "<b>User profile variable:".$user_profile."<br>";                                        
                     echo "<br> <a href='logout.php'>Logout</a>";
 
-                    $userStatuses = $authProvider->api()->get( 'statuses/user_timeline.json?screen_name='.$screenName.'&count=20' );
+                    $userStatuses = $authProvider->api()->get( 'statuses/user_timeline.json?screen_name='.$screenName.'&count=199' );
 
+                    echo "<br>Var type of $userStatuses = ";
+                    print_r(gettype($userStatuses));
+                    echo "<br>";
+                    
                     print_r($userStatuses);
 
-
+                    
                    
 
                    $servername = getenv('OPENSHIFT_MYSQL_DB_HOST');
