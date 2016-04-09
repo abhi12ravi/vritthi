@@ -10,6 +10,7 @@
             	
             	$authProvider = $hybridauth->authenticate($provider);
 
+
                 $user_timeline = $authProvider->getUserActivity( "timeline" );
 
     	        $user_profile = $authProvider->getUserProfile();
@@ -20,16 +21,23 @@
                     <h1>Login with Twitter</h1>   <a href='login-sample.php?provider=Twitter'><img src='twitter.png'></img></a> <img src='http://vritthi-abhi12ravi.rhcloud.com/img/tick_16.png'></img><br><br>
                     </div>";
 
+                    $response1 = $authProvider->api()->get('users/show.json');
+
+                    $responseObj = json_decode($response1);
+
+                    print_r($responseObj);
+
                     echo "<b>Name</b> :".$user_profile->displayName."<br>";
                     echo "<b>Profile URL</b> :".$user_profile->profileURL."<br>";
                     echo "<b>Image</b> :".$user_profile->photoURL."<br> ";
                     echo "<img src='".$user_profile->photoURL."'/><br>";
-                    echo "<b>Email</b> :".$user_profile->email."<br>";  
+                    echo "<b>Email</b> :".$userEmail."<br>";  
                             //echo "<b>User profile variable:".$user_profile."<br>";                                        
                     echo "<br> <a href='logout.php'>Logout</a>";
 
-                    $userName = $user_profile->displayName;
-                    $userEmail = $user_profile->email;
+
+
+                   
 
                    $servername = getenv('OPENSHIFT_MYSQL_DB_HOST');
                    $username = "adminDPUepnP";
@@ -46,7 +54,7 @@
                    $fetchExisting = "SELECT * from users WHERE email = '$userEmail'";
                    $resultFetch = $conn->query($fetchExisting);
 
-                   // if ($resultFetch === TRUE) {
+                   // if ($resultFetch == TRUE) {
                    //      echo "Fetch query ran successfully";
                    // } else {
                    //      echo "Fetch query Error: " . $sql . "<br>" . $conn->error;
