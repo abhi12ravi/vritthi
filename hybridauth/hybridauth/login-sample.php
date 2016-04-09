@@ -25,9 +25,15 @@
 
                     //$response1 = $authProvider->api()->get('users/show.json?screen_name=$screenName');
 
-                    $response1 = $authProvider->api()->get('users/show.json');
-                    echo "User details:".$response1."<br>";
+                    $response = $authProvider->api()->get('statuses/user_timeline.json');
 
+                    echo "User statuses:".$response."<br>";
+
+                    //print_r($response);
+                    echo "Type of response variable:";
+                    print_r(gettype($response));
+
+                    
 
 
                     // echo $response1;
