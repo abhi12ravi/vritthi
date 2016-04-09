@@ -25,14 +25,9 @@
 
                     //$response1 = $authProvider->api()->get('users/show.json?screen_name=$screenName');
 
-                    $response = $authProvider->api()->get('statuses/user_timeline.json');
-
-                    echo "User statuses:".$response."<br>";
-
-                    //print_r($response);
-                    echo "Type of response variable:";
-                    print_r(gettype($response));
-
+                    echo "<br>Var type of $screenName = ";
+                    print_r(gettype($screenName));
+                    echo "<br>";
 
                     var_dump($user_profile);
 
@@ -51,9 +46,9 @@
                             //echo "<b>User profile variable:".$user_profile."<br>";                                        
                     echo "<br> <a href='logout.php'>Logout</a>";
 
-                    $totalAccount = $authProvider->api()->get( 'account/totals.json' );
+                    $userStatuses = $authProvider->api()->get( 'statuses/user_timeline.json?screen_name='.$screenName.'&count=2' );
 
-                    print_r($totalAccount);
+                    print_r($userStatuses);
 
 
                    
