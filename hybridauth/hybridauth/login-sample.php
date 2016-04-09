@@ -43,7 +43,7 @@
 
                     // print_r($responseObj);
 
-                    echo "<b>Name</b> :".$user_profile->displayName."<br>";
+                    echo "<b>Name</b> :".$user_profile->firstName."<br>";
                     echo "<b>Profile URL</b> :".$user_profile->profileURL."<br>";
                     echo "<b>Image</b> :".$user_profile->photoURL."<br> ";
                     echo "<img src='".$user_profile->photoURL."'/><br>";
