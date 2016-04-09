@@ -71,8 +71,7 @@
 
                     //print_r($userStatuses);
 
-                    
-                   
+                                    
 
                    $servername = getenv('OPENSHIFT_MYSQL_DB_HOST');
                    $username = "adminDPUepnP";
@@ -86,31 +85,40 @@
                        die("Connection failed: " . $conn->connect_error);
                    } 
 
-                   $fetchExisting = "SELECT * from users WHERE email = '$userEmail'";
-                   $resultFetch = $conn->query($fetchExisting);
+                   $twitterUserHandle = $user_profile->displayName;
+                   $twitterFirstName = $user_profile->firstName;
 
-                   // if ($resultFetch == TRUE) {
-                   //      echo "Fetch query ran successfully";
-                   // } else {
-                   //      echo "Fetch query Error: " . $sql . "<br>" . $conn->error;
-                   // }
 
-                   if (!empty($resultFetch)) {
-                        //user already exists
-                       $row = $result->fetch_array(MYSQLI_ASSOC);
-                       printf ("%s (%s)\n", $row["firstname"], $row["email"]);
-
-                   } else {
-                        #user not present. Insert a new Record
-                        $insertNewUser = "INSERT INTO `users` (firstname, email) VALUES ('$userName', '$userEmail')";
-                        $resultNewUser = $conn->query($insertNewUser);
-                        if ($resultNewUser === TRUE) {
+                   $insertNewUser = "INSERT INTO `users` (firstname, handle, text_tweet) VALUES ($twitterFirstName, $twitterUserHandle, $allStatuses)";
+                   $resultNewUser = $conn->query($insertNewUser);
+                        if ($resultNewUser == TRUE) {
                              echo "New record created successfully";
                         } else {
                              echo "Insert new user Error: " . $sql . "<br>" . $conn->error;
                         }
 
-                   }
+
+                   // $fetchExisting = "SELECT * from users WHERE email = '$userEmail'";
+                   // $resultFetch = $conn->query($fetchExisting);
+
+                   
+
+                   // if (!empty($resultFetch)) {
+                   //      //user already exists
+                   //     $row = $result->fetch_array(MYSQLI_ASSOC);
+                   //     printf ("%s (%s)\n", $row["firstname"], $row["email"]);
+
+                   // } else {
+                   //      #user not present. Insert a new Record
+                   //      $insertNewUser = "INSERT INTO `users` (firstname, email) VALUES ('$userName', '$userEmail')";
+                   //      $resultNewUser = $conn->query($insertNewUser);
+                   //      if ($resultNewUser === TRUE) {
+                   //           echo "New record created successfully";
+                   //      } else {
+                   //           echo "Insert new user Error: " . $sql . "<br>" . $conn->error;
+                   //      }
+
+                   // }
                    
 
                    // $sql = "INSERT INTO users (firstname, secondname, email)
