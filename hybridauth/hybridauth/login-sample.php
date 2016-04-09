@@ -11,7 +11,7 @@
             	$authProvider = $hybridauth->authenticate($provider);
 
 
-                $user_timeline = $authProvider->getUserActivity( "timeline" );
+                //$user_timeline = $authProvider->getUserActivity( "timeline" );
 
     	        $user_profile = $authProvider->getUserProfile();
     	        
