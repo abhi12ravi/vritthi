@@ -34,6 +34,11 @@
                     print_r(gettype($response));
 
                     
+                    foreach ($response as $value) {
+                            # code...
+                            echo $value['text'] . ": " . "<hr />";
+                    }
+
 
 
                     // echo $response1;
