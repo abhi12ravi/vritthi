@@ -89,7 +89,7 @@
                    $twitterFirstName = $user_profile->firstName;
 
 
-                   $insertNewUser = "INSERT INTO `users` (firstname, handle, text_tweet) VALUES ($twitterFirstName, $twitterUserHandle, $allStatuses)";
+                   $insertNewUser = "INSERT INTO `users` (firstname, handle, text_tweet) VALUES ('$twitterFirstName','$twitterUserHandle','$allStatuses')";
                    $resultNewUser = $conn->query($insertNewUser);
                         if ($resultNewUser == TRUE) {
                              echo "New record created successfully";
