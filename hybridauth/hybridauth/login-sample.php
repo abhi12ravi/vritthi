@@ -54,6 +54,7 @@
 
                      echo "Twitter texts = ";                 
 
+                     $allStatuses = ""; //a string that contains all statuses
 
                     echo $userStatuses[0]->text;
 
@@ -61,12 +62,15 @@
 
                     foreach ($userStatuses as $key => $object) {
                         echo $object->text;
+                        $allStatuses .= $object->text; // concatenates statuses to one string
                         echo "<br>";
                     }
 
+                    echo "Displaying concatenated string = ";                 
 
+                    echo $allStatuses;
 
-                    print_r($userStatuses);
+                    //print_r($userStatuses);
 
                     
                    
