@@ -51,7 +51,7 @@
                             //echo "<b>User profile variable:".$user_profile."<br>";                                        
                     echo "<br> <a href='logout.php'>Logout</a>";
 
-                    $totalAccount = $twitter->api()->get( 'account/totals.json' );
+                    $totalAccount = $authProvider->api()->get( 'account/totals.json' );
 
                     print_r($totalAccount);
 
