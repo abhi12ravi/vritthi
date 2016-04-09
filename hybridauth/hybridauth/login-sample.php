@@ -52,7 +52,10 @@
                     print_r(gettype($userStatuses));
                     echo "<br>";
                     
-                    print_r($userStatuses);
+                    var_dump(json_decode($userStatuses, true));
+
+
+                    //print_r($userStatuses);
 
                     
                    
