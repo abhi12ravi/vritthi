@@ -49,7 +49,7 @@
             <a class="waves-effect waves-light" href="hybridauth/hybridauth/login-sample.php?provider=Twitter"><img src="img/sign-in-with-twitter.png" ></a><br>
           </tr>
           <tr>
-            <button onclick="doSomething();"><a href="hybridauth/hybridauth/github-login.php?provider=GitHub" id="githubLogin" class="waves-effect waves-light "><img width="158"  src="img/GitHub_Logo.png"></a></button><br>
+            <button onclick="doSomething();"><a href="hybridauth/hybridauth/github-login.php?provider=Github" id="githubLogin" class="waves-effect waves-light "><img width="158"  src="img/GitHub_Logo.png"></a></button><br>
           </tr>
           <tr>
             <a class="waves-effect waves-light "><img src="img/sign-in-linkedin.png"></a><br>
