@@ -11,8 +11,8 @@
 		$adapter = $hybridauth->authenticate( "Github" );
 		
 		// return Hybrid_User_Profile object intance
-		$user_profile = $adapter->getUserProfile();
+		//$user_profile = $adapter->getUserProfile();
 		
-		echo "Hi there! " . $user_profile->displayName;
+		//echo "Hi there! " . $user_profile->displayName;
 	}
  ?>
