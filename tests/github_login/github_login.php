@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('Github_Lib/githubConfig.php');
 require_once('Github_Lib/githubApi.php');			
 if($_SERVER['REQUEST_METHOD'] == 'GET') 
