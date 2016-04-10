@@ -17,9 +17,9 @@ $config =array(
 				"keys"    => array ( "id" => "XXXXXXXXXXXX", "secret" => "XXXXXXXX" ), 
 			),
 
-			"Facebook" => array ( 
+			"Github" => array ( 
 				"enabled" => true,
-				"keys"    => array ( "id" => "XXXXXXXXX", "secret" => "XXXXXXXX" ), 
+				"keys"    => array ( "id" => "814d73883b6f03e84fd1", "secret" => "2aa5f1769d14bfb8b693aaddf836cf3e99434670" ), 
 			),
 
 			"Twitter" => array ( 
