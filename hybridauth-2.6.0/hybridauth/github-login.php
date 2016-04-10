@@ -1,14 +1,15 @@
 <?php	
 	session_start();
+	echo "Login page accessible! <br>";
 	include('config.php');
-	include('hybridauth/Hybrid/Auth.php');
+	include('Hybrid/Auth.php');
 	if(isset($_GET['provider']))
 	{
 		// init hybridauth
 		$hybridauth = new Hybrid_Auth( $config );
 		
 		// try to authenticate with twitter
-		$adapter = $hybridauth->authenticate( "GitHub" );
+		$adapter = $hybridauth->authenticate( "Github" );
 		
 		// return Hybrid_User_Profile object intance
 		$user_profile = $adapter->getUserProfile();
