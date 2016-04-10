@@ -3,7 +3,7 @@ session_start();
 include('db.php'); //Database Connection. 
 if (!isset($_SESSION['github_data'])) {
 // Redirection to application index page. 
-header("location: index.php");
+//header("location: index.php");
 }
 else
 {
