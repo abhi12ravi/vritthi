@@ -8,6 +8,7 @@ if(isset($_GET['code']))
 $git = new githubApi($config);
 $git->getUserDetails();
 $_SESSION['github_data']=$git->getAllUserDetails();
+echo $_SESSION['github_data'];
 header("Location: home.php");
 }
 else
