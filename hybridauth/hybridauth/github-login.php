@@ -8,11 +8,11 @@
 		$hybridauth = new Hybrid_Auth( $config );
 		
 		// try to authenticate with twitter
-		$adapter = $hybridauth->authenticate( "Github" );
+		$adapter = $hybridauth->authenticate( "GitHub" );
 		
 		// return Hybrid_User_Profile object intance
-		//$user_profile = $adapter->getUserProfile();
+		$user_profile = $adapter->getUserProfile();
 		
-		//echo "Hi there! " . $user_profile->displayName;
+		echo "Hi there! " . $user_profile->displayName;
 	}
  ?>
