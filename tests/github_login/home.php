@@ -18,6 +18,8 @@ $github_username = $userdata->login;
 $profile_image = $userdata->avatar_url;
 $github_url = $userdata->url;
 
+var_dump($userdata);
+
 $q=mysqli_query($connection,"SELECT id FROM github_users WHERE email='$email'");
 if(mysqli_num_rows($c) == 0)
 {
