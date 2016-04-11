@@ -39,10 +39,10 @@ function crawl_page($url, $depth = 5)
     //         }
     //     }
     //     crawl_page($href, $depth - 1);
+    // }
 
     var_dump($anchors);
 
-    }
     echo "URL:",$url,PHP_EOL,"CONTENT:",PHP_EOL,$dom->saveHTML(),PHP_EOL,PHP_EOL;
 }
 crawl_page("http://hobodave.com", 2);
