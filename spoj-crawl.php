@@ -19,8 +19,13 @@ function crawl_page($url, $depth = 5)
     @$dom->loadHTMLFile($url);
 
     $anchors = $dom->getElementsByTagName('a');
-    // foreach ($anchors as $element) {
-    //     $href = $element->getAttribute('href');
+    foreach ($anchors as $element) {
+         $href = $element->getAttribute('href');
+         echo "The type of output is: ";
+         print_r(gettype($href));
+         echo "<br>";
+         print_r($href);
+
     //     if (0 !== strpos($href, 'http')) {
     //         $path = '/' . ltrim($href, '/');
     //         if (extension_loaded('http')) {
@@ -43,7 +48,7 @@ function crawl_page($url, $depth = 5)
 
     var_dump($anchors);
 
-    echo "URL:",$url,PHP_EOL,"CONTENT:",PHP_EOL,$dom->saveHTML(),PHP_EOL,PHP_EOL;
+    //echo "URL:",$url,PHP_EOL,"CONTENT:",PHP_EOL,$dom->saveHTML(),PHP_EOL,PHP_EOL;
 }
 crawl_page("http://hobodave.com", 2);
 
