@@ -19,35 +19,39 @@ function crawl_page($url, $depth = 5)
     @$dom->loadHTMLFile($url);
 
     $anchors = $dom->getElementsByTagName('a');
-    foreach ($anchors as $element) {
-         $href = $element->getAttribute('href');
-         echo "The type of output is: ";
-         print_r(gettype($href));
-         echo "<br>";
-         print_r($href);
+    // foreach ($anchors as $element) {
+    //      $href = $element->getAttribute('href');
+    //      echo "The type of output is: ";
+    //      print_r(gettype($href));
+    //      echo "<br>";
+    //      print_r($href);
 
 
-    //     if (0 !== strpos($href, 'http')) {
-    //         $path = '/' . ltrim($href, '/');
-    //         if (extension_loaded('http')) {
-    //             $href = http_build_url($url, array('path' => $path));
-    //         } else {
-    //             $parts = parse_url($url);
-    //             $href = $parts['scheme'] . '://';
-    //             if (isset($parts['user']) && isset($parts['pass'])) {
-    //                 $href .= $parts['user'] . ':' . $parts['pass'] . '@';
-    //             }
-    //             $href .= $parts['host'];
-    //             if (isset($parts['port'])) {
-    //                 $href .= ':' . $parts['port'];
-    //             }
-    //             $href .= $path;
-    //         }
-    //     }
-    //     crawl_page($href, $depth - 1);
-     }
+    // //     if (0 !== strpos($href, 'http')) {
+    // //         $path = '/' . ltrim($href, '/');
+    // //         if (extension_loaded('http')) {
+    // //             $href = http_build_url($url, array('path' => $path));
+    // //         } else {
+    // //             $parts = parse_url($url);
+    // //             $href = $parts['scheme'] . '://';
+    // //             if (isset($parts['user']) && isset($parts['pass'])) {
+    // //                 $href .= $parts['user'] . ':' . $parts['pass'] . '@';
+    // //             }
+    // //             $href .= $parts['host'];
+    // //             if (isset($parts['port'])) {
+    // //                 $href .= ':' . $parts['port'];
+    // //             }
+    // //             $href .= $path;
+    // //         }
+    // //     }
+    // //     crawl_page($href, $depth - 1);
+    //  }
 
-     $dlList = $dom->getElementsByTagName('dl');
+     $dlList = $dom->getElementsByTagName('div');
+     echo "The type of output is: ";
+     print_r(gettype($dlList));
+     echo "<br>";
+     print_r($dlList);
      foreach ($dlList as $element) {
          $href = $element->getAttribute('class');
          echo "The type of output is: ";
