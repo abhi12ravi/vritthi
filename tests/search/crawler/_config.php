@@ -46,7 +46,7 @@ $s_op['mysql_db'] = "vritthi";
 $s_op['mysql_user'] = "adminDPUepnP";
 $s_op['mysql_pass'] = "38E1d5whUcQE";
 
-$CRAWL_ENTRY_POINT_URL = "http://www.spoj.com/users/abhi12ravi/".$_SERVER['HTTP_HOST']; // website to crawl MUST begins with http:// prefix
+$CRAWL_ENTRY_POINT_URL = "http://www.spoj.com/users/abhi12ravi/"; // website to crawl MUST begins with http:// prefix
 
 $CRAWL_LOCALE = "en_US"; // read more about Locate http://php.rinet.ru/manual/en/function.setlocale.php
 //$CRAWL_LOCALE = "ru_RU";
