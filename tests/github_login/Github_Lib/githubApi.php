@@ -138,7 +138,7 @@ class githubApi {
 	
 	public function getAllUserDetails() {
 		return $this->user[1];
-	}
+	}	
 	
 	public function userData($key){
 		return $this->user[1]->$key;
