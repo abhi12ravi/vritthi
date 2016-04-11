@@ -26,6 +26,7 @@ function crawl_page($url, $depth = 5)
          echo "<br>";
          print_r($href);
 
+
     //     if (0 !== strpos($href, 'http')) {
     //         $path = '/' . ltrim($href, '/');
     //         if (extension_loaded('http')) {
@@ -44,9 +45,19 @@ function crawl_page($url, $depth = 5)
     //         }
     //     }
     //     crawl_page($href, $depth - 1);
-    // }
+     }
 
-    var_dump($anchors);
+     $dlList = $dom->getElementsByTagName('dl');
+     foreach ($dlList as $element) {
+         $href = $element->getAttribute('class');
+         echo "The type of output is: ";
+         print_r(gettype($href));
+         echo "<br>";
+         print_r($href);
+     }
+
+
+    
 
     //echo "URL:",$url,PHP_EOL,"CONTENT:",PHP_EOL,$dom->saveHTML(),PHP_EOL,PHP_EOL;
 }
