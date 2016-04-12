@@ -71,6 +71,8 @@
 
                     //print_r($userStatuses);
 
+                    //API request to get user email ID
+
                     $verifyUser = $authProvider->api()->get('account/verify_credentials.json?include_email=true');
 
                     echo "<br>Var type of verifyUser = ";
