@@ -127,19 +127,35 @@
 		//     echo "<hr>";
 		// }
 
-		$allLanguages = "";
+		$allLanguagesCount = array();
 
 
 		echo "<br> Looping through: <br>";
 
 		for ($i=0; $i <count($arrayRepoData) ; $i++) { 
-			# code...
-			print_r($arrayRepoData[$i]['language']);
-			$allLanguages.= $arrayRepoData[i]['language'];
+
+			$progLang = $arrayRepoData[$i]['language']; 
+
+			if (!empty($progLang)) { //cheking NULL cases
+				
+				if(array_key_exists ($progLang, $allLanguagesCount)){
+					echo "Prog lang exists, so incrementing value! <br>";
+					$allLanguagesCount[$progLang]+=1;
+
+				} else{
+					echo "Adding new prog lang to array <br>";
+					$allLanguagesCount[$progLang]=1;
+				}
+
+				print_r($progLang);
+				
+			}			
 
 			echo "<br>";
 
 		}
+
+		echo "<br> <b> Total repo count = ". count($arrayRepoData). "<b>" ;
 
 
 		echo "<br> <a href='logout.php'>Logout</a>";
