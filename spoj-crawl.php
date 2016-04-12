@@ -57,7 +57,7 @@ function crawl_page($url, $depth = 5)
          echo "The type of output is: ";
          print_r(gettype($href));
          echo "<br>";
-         print_r($href);
+         echo $href;
      }
 
 
