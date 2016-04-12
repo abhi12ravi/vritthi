@@ -52,12 +52,11 @@ function crawl_page($url, $depth = 5)
      print_r(gettype($dlList));
      echo "<br>";
      print_r($dlList);
-     foreach ($dlList as $element) {
-         $href = $element->getAttribute('class');
-         echo "The type of output is: ";
-         print_r(gettype($href));
-         echo "<br>";
-         echo $href;
+     foreach ($dlList as $element) {        
+
+           echo $element->elementValue, PHP_EOL;
+
+         
      }
 
 
