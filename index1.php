@@ -58,7 +58,11 @@
             <a class="waves-effect waves-light" href="hybridauth/hybridauth/login-sample.php?provider=Twitter"><img src="img/sign-in-with-twitter.png" ></a><br>
           </tr>
           <tr>
-            <button><a href="tests/github_login/github_login.php" id="githubLogin" class="waves-effect waves-light "><img width="158"  src="img/GitHub_Logo.png"></a></button><br>
+            <button><a href="tests/github_login/github_login.php" id="githubLogin" class="waves-effect waves-light "><img width="158"  src="img/GitHub_Logo.png"></a></button>
+            <?php if(!empty($_SESSION['user_prog_langs_count'])) :?>
+              <img src="img/tick_16.png">
+             <?php endif; ?>
+            <br>
           </tr>
           <!-- <tr>
             <a class="waves-effect waves-light "><img src="img/sign-in-linkedin.png"></a><br>
