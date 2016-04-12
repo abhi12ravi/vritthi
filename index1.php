@@ -58,7 +58,7 @@
             <a class="waves-effect waves-light" href="hybridauth/hybridauth/login-sample.php?provider=Twitter"><img src="img/sign-in-with-twitter.png" ></a><br>
           </tr>
           <tr>
-            <a href="tests/github_login/github_login.php" id="githubLogin" class="waves-effect waves-light "><img width="158"  src="img/GitHub_Logo.png"></a><br>
+            <button><a href="tests/github_login/github_login.php" id="githubLogin" class="waves-effect waves-light "><img width="158"  src="img/GitHub_Logo.png"></a></button><br>
           </tr>
           <!-- <tr>
             <a class="waves-effect waves-light "><img src="img/sign-in-linkedin.png"></a><br>

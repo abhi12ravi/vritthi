@@ -159,8 +159,14 @@
 
 		print_r($allLanguagesCount);
 
+		$_SESSION['user_prog_langs_count']=$allLanguagesCount;
 
 		echo "<br> <a href='logout.php'>Logout</a>";
+
+		if (!empty($allLanguagesCount)) {
+			# code...
+			header("location: ../../index1.php");
+		}
 
 	}
 ?>
