@@ -93,10 +93,10 @@
 		echo "<br> Repos URL:". $repos_url;
 		echo "<br> Orgs URL:". $orgs_url;
 
-		echo get_remote_data('$repos_url');                                // GET request 
+		echo get_remote_data($repos_url);                                // GET request 
 
 
-		$urlFetch = file_get_contents('$repos_url');
+		$urlFetch = file_get_contents($repos_url);
 
 		echo "<br>Var type of urlFetch = ";
 		print_r(gettype($urlFetch));
