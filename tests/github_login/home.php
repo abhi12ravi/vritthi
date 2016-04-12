@@ -165,7 +165,7 @@
 
 		if (!empty($allLanguagesCount)) {
 			# code...
-			header("location: ../../index1.php");
+			//header("location: ../../index1.php");
 		}
 
 	}
