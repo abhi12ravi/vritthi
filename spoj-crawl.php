@@ -47,16 +47,17 @@ function crawl_page($url, $depth = 5)
     // //     crawl_page($href, $depth - 1);
     //  }
 
-     $dlList = $dom->getElementsByTagName('div');
+     $dlList = $dom->getElementsByTagName('dl');
      echo "The type of output is: ";
      print_r(gettype($dlList));
      echo "<br>";
      print_r($dlList);
-     foreach ($dlList as $element) {        
-
-           echo $element->elementValue, PHP_EOL;
-
-         
+     foreach ($dlList as $element) {
+         $href = $element->getAttribute('class');
+         echo "The type of output is: ";
+         print_r(gettype($href));
+         echo "<br>";
+         echo $href;
      }
 
 
