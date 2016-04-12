@@ -128,74 +128,9 @@
                     } else {
                             echo "<br> Update query Error: " . $sql . "<br>" . $conn->error;
                          }
-                   } 
-
-                   
-                   
-
-                  
-
-
-                   // $fetchExisting = "SELECT * from users WHERE email = '$userEmail'";
-                   // $resultFetch = $conn->query($fetchExisting);
-
-                   
-
-                   // if (!empty($resultFetch)) {
-                   //      //user already exists
-                   //     $row = $result->fetch_array(MYSQLI_ASSOC);
-                   //     printf ("%s (%s)\n", $row["firstname"], $row["email"]);
-
-                   // } else {
-                   //      #user not present. Insert a new Record
-                   //      $insertNewUser = "INSERT INTO `users` (firstname, email) VALUES ('$userName', '$userEmail')";
-                   //      $resultNewUser = $conn->query($insertNewUser);
-                   //      if ($resultNewUser === TRUE) {
-                   //           echo "New record created successfully";
-                   //      } else {
-                   //           echo "Insert new user Error: " . $sql . "<br>" . $conn->error;
-                   //      }
-
-                   // }
-                   
-
-                   // $sql = "INSERT INTO users (firstname, secondname, email)
-                   // VALUES ('John', 'Doe', 'john@example.com')";
-
-                   // if ($conn->query($sql) === TRUE) {
-                   //     echo "New record created successfully";
-                   // } else {
-                   //     echo "Error: " . $sql . "<br>" . $conn->error;
-                   // }
+                   }    
 
                    $conn->close();
-
-                    // $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
-                    // if($db){
-                    //     echo "DB connection success! DB value=".$db;
-
-                    //     $query = mysqli_query($db,"SELECT * FROM `users` WHERE oauth_uid = '$uid' and oauth_provider = '$oauth_provider'");
-                    //     $result = mysqli_fetch_array($query,MYSQLI_ASSOC);
-                    //     if (!empty($result)) {
-                    //         # User is already present
-                    //         echo "Result value=".$result;
-
-                    //     } else {
-                    //         #user not present. Insert a new Record
-                    //         $query = mysqli_query($db,"INSERT INTO `users` (oauth_provider, oauth_uid, username,email,twitter_oauth_token,twitter_oauth_token_secret) VALUES ('$oauth_provider', $uid, '$username','$email')");
-                    //         echo "Query value INSERT =".$query;                        
-                    //         $query = mysqli_query($db,"SELECT * FROM `users` WHERE oauth_uid = '$uid' and oauth_provider = '$oauth_provider'");
-                    //         echo "Query value SELECT =".$query;
-                    //         $result = mysqli_fetch_array($query,MYSQLI_ASSOC);
-                    //         echo "Result FETCH_ARRAY value=".$result;
-
-                    //         return $result;
-                    //     }
-                    //     return $result;  
-                    // }
-                    // else{
-                    //     echo "DB conn FAIL";
-                    // }
                }
 	        }
 			catch( Exception $e )

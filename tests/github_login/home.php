@@ -18,6 +18,9 @@ $github_username = $userdata->login;
 $profile_image = $userdata->avatar_url;
 $github_url = $userdata->url;
 
+$repos_url = $userdata->repos_url;
+$orgs_url = $userdata->organizations_url;
+
 var_dump($userdata);
 
 $q=mysqli_query($connection,"SELECT id FROM github_users WHERE email='$email'");
@@ -32,6 +35,11 @@ echo "<pre>";
 echo "</pre>";
 
 echo "<h1>Welcome to ".$fullName."</h1>";
+
+echo "<br> Repos URL:". $repos_url;
+echo "<br> Orgs URL:". $orgs_url;
+
+
 
 echo "<a href='logout.php'>Logout</a>";
 
