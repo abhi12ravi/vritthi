@@ -73,7 +73,7 @@
 
                     $verifyUser = $authProvider->api()->get('account/verify_credentials.json');
 
-                    echo "<br>Var type of $userStatuses = ";
+                    echo "<br>Var type of verifyUser = ";
                     print_r(gettype($verifyUser));
                     echo "<br>";
                                     
