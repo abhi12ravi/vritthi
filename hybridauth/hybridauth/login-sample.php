@@ -81,8 +81,9 @@
 
                     $arrayObj = get_object_vars($verifyUser);
 
-                    echo "<br>Printing arry of objects: <br>";
-                    print_r($arrayObj);
+                    echo "<br>Printing arry of objects, email string = <br>";
+                    //print_r($arrayObj);
+                    print_r($arrayObj["email"]);
                                     
 
                    $servername = getenv('OPENSHIFT_MYSQL_DB_HOST');
