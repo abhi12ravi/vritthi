@@ -100,6 +100,7 @@
 
                    $twitterUserHandle = $user_profile->displayName;
                    $twitterFirstName = $user_profile->firstName;
+                   $twitterEmailId = $arrayObj["email"];
                    //removing quotes in all the tweets to ensure they go into the db
                    $remove[] = "'";
                    $remove[] = '"';
@@ -108,7 +109,7 @@
                    $allStatusesFinal = str_replace( $remove, "", $allStatuses);
 
 
-                   $insertNewUser = "INSERT INTO `users` (firstname, handle, text_tweet) VALUES ('$twitterFirstName', '$twitterUserHandle', '$allStatusesFinal')";
+                   $insertNewUser = "INSERT INTO `users` (firstname, email, handle, text_tweet) VALUES ('$twitterFirstName', '$twitterEmailId','$twitterUserHandle', '$allStatusesFinal')";
                    $resultNewUser = $conn->query($insertNewUser);
                         if ($resultNewUser == TRUE) {
                              echo "New record created successfully";
