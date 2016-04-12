@@ -137,7 +137,7 @@
 			$progLang = $arrayRepoData[$i]['language']; 
 
 			if (!empty($progLang)) { //cheking NULL cases
-				
+
 				if(array_key_exists ($progLang, $allLanguagesCount)){
 					echo "Prog lang exists, so incrementing value! <br>";
 					$allLanguagesCount[$progLang]+=1;
@@ -155,7 +155,7 @@
 
 		}
 
-		echo "<br> <b> Total repo count = ". count($arrayRepoData). "<b>" ;
+		echo "<br> <b> Total repo count = ". count($arrayRepoData). print_r($allLanguagesCount)."<b>" ;
 
 
 		echo "<br> <a href='logout.php'>Logout</a>";
