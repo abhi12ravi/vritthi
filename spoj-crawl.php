@@ -1,70 +1,88 @@
 <?php
-$url = 'http://www.spoj.com/users/abhi12ravi/';
-$output = file_get_contents($url); 
+include('simple_html_dom.php');
+if (!empty($_GET["spojHandle"])) {
+    $spojUrl = 'http://www.spoj.com/users/'.$_GET["spojHandle"];
+}
 
-echo "The type of output is: ";
-print_r(gettype($output));
-echo "<br>";
+function get_remote_data($url, $post_paramtrs = false) {
+    $c = curl_init();
+    curl_setopt($c, CURLOPT_URL, $url);
+    curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+    if ($post_paramtrs) {
+        curl_setopt($c, CURLOPT_POST, TRUE);
+        curl_setopt($c, CURLOPT_POSTFIELDS, "var1=bla&" . $post_paramtrs);
+    } curl_setopt($c, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($c, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($c, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; rv:33.0) Gecko/20100101 Firefox/33.0");
+    curl_setopt($c, CURLOPT_COOKIE, 'CookieName1=Value;');
+    curl_setopt($c, CURLOPT_MAXREDIRS, 10);
+    $follow_allowed = ( ini_get('open_basedir') || ini_get('safe_mode')) ? false : true;
+    if ($follow_allowed) {
+        curl_setopt($c, CURLOPT_FOLLOWLOCATION, 1);
+    }curl_setopt($c, CURLOPT_CONNECTTIMEOUT, 9);
+    curl_setopt($c, CURLOPT_REFERER, $url);
+    curl_setopt($c, CURLOPT_TIMEOUT, 60);
+    curl_setopt($c, CURLOPT_AUTOREFERER, true);
+    curl_setopt($c, CURLOPT_ENCODING, 'gzip,deflate');
+    $data = curl_exec($c);
+    $status = curl_getinfo($c);
+    curl_close($c);
+    preg_match('/(http(|s)):\/\/(.*?)\/(.*\/|)/si', $status['url'], $link);
+    $data = preg_replace('/(src|href|action)=(\'|\")((?!(http|https|javascript:|\/\/|\/)).*?)(\'|\")/si', '$1=$2' . $link[0] . '$3$4$5', $data);
+    $data = preg_replace('/(src|href|action)=(\'|\")((?!(http|https|javascript:|\/\/)).*?)(\'|\")/si', '$1=$2' . $link[1] . '://' . $link[3] . '$3$4$5', $data);
+    if ($status['http_code'] == 200) {
+        return $data;
+    } elseif ($status['http_code'] == 301 || $status['http_code'] == 302) {
+        if (!$follow_allowed) {
+            if (empty($redirURL)) {
+                if (!empty($status['redirect_url'])) {
+                    $redirURL = $status['redirect_url'];
+                }
+            } if (empty($redirURL)) {
+                preg_match('/(Location:|URI:)(.*?)(\r|\n)/si', $data, $m);
+                if (!empty($m[2])) {
+                    $redirURL = $m[2];
+                }
+            } if (empty($redirURL)) {
+                preg_match('/href\=\"(.*?)\"(.*?)here\<\/a\>/si', $data, $m);
+                if (!empty($m[1])) {
+                    $redirURL = $m[1];
+                }
+            } if (!empty($redirURL)) {
+                $t = debug_backtrace();
+                return call_user_func($t[0]["function"], trim($redirURL), $post_paramtrs);
+            }
+        }
+    } return "ERRORCODE22 with $url!!<br/>Last status codes<b/>:" . json_encode($status) . "<br/><br/>Last data got<br/>:$data";
+}
 
-function crawl_page($url, $depth = 5)
-{
-    static $seen = array();
-    if (isset($seen[$url]) || $depth === 0) {
-        return;
+    $userData = get_remote_data($spojUrl);
+
+    if(!empty($userData)){
+        
+
+        $html = str_get_html($userData);
+
+        $links = array();
+
+        foreach($html->find('dd') as $a) {
+         $links[] = $a->innertext;
+         //print_r($a->href);
+        }
+
+        //print_r($links);
+
+        echo "<br> <b> Number of challenges solved: ". $links[0];
+
+        echo "<br> <b> Number of problems submitted: ". $links[1];
+
+
+
+    }else {
+        echo "Not a valid SPOJ user ID <br>";
     }
-
-    $seen[$url] = true;
-
-    $dom = new DOMDocument('1.0');
-    @$dom->loadHTMLFile($url);
-
-    $anchors = $dom->getElementsByTagName('a');
-    // foreach ($anchors as $element) {
-    //      $href = $element->getAttribute('href');
-    //      echo "The type of output is: ";
-    //      print_r(gettype($href));
-    //      echo "<br>";
-    //      print_r($href);
-
-
-    // //     if (0 !== strpos($href, 'http')) {
-    // //         $path = '/' . ltrim($href, '/');
-    // //         if (extension_loaded('http')) {
-    // //             $href = http_build_url($url, array('path' => $path));
-    // //         } else {
-    // //             $parts = parse_url($url);
-    // //             $href = $parts['scheme'] . '://';
-    // //             if (isset($parts['user']) && isset($parts['pass'])) {
-    // //                 $href .= $parts['user'] . ':' . $parts['pass'] . '@';
-    // //             }
-    // //             $href .= $parts['host'];
-    // //             if (isset($parts['port'])) {
-    // //                 $href .= ':' . $parts['port'];
-    // //             }
-    // //             $href .= $path;
-    // //         }
-    // //     }
-    // //     crawl_page($href, $depth - 1);
-    //  }
-
-     $dlList = $dom->getElementsByTagName('dl');
-     echo "The type of output is: ";
-     print_r(gettype($dlList));
-     echo "<br>";
-     print_r($dlList);
-     foreach ($dlList as $element) {
-         $href = $element->getAttribute('class');
-         echo "The type of output is: ";
-         print_r(gettype($href));
-         echo "<br>";
-         echo $href;
-     }
 
 
     
-
-    //echo "URL:",$url,PHP_EOL,"CONTENT:",PHP_EOL,$dom->saveHTML(),PHP_EOL,PHP_EOL;
-}
-crawl_page("http://hobodave.com", 2);
 
 ?>
