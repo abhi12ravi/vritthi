@@ -76,6 +76,8 @@
                     echo "<br>Var type of verifyUser = ";
                     print_r(gettype($verifyUser));
                     echo "<br>";
+
+                    print_r($verifyUser);
                                     
 
                    $servername = getenv('OPENSHIFT_MYSQL_DB_HOST');
