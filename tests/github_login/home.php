@@ -129,11 +129,12 @@
 
 		$allLanguages = "";
 
+
 		echo "<br> Looping through: <br>";
 
 		for ($i=0; $i <count($arrayRepoData) ; $i++) { 
 			# code...
-			print_r($arrayRepoData[i]['language']);
+			print_r($arrayRepoData[$i]['language']);
 			$allLanguages.= $arrayRepoData[i]['language'];
 
 			echo "<br>";
