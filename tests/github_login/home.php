@@ -102,11 +102,16 @@
 		print_r(gettype($repoData));
 		echo "<br>";
 
+		$arrayRepoData = json_decode($repoData, true);
+
 		echo "<br> JSON Decoded string:";
-		var_dump(json_decode($repoData, true));
+		var_dump($arrayRepoData);
 		echo "<br>";
 
-		foreach ($repoData as $key => $object) {
+
+		echo "<br> Listing repos <br>";
+
+		foreach ($arrayRepoData as $key => $object) {
 		    echo "<br> Repo name: ".$object->name;
 		    echo "<hr>";
 		}
