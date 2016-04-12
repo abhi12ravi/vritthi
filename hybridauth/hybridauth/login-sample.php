@@ -109,6 +109,8 @@
                    $remove[] = "-"; // just as another example
 
                    $allStatusesFinal = str_replace( $remove, "", $allStatuses);
+                   $_SESSION['user_tweet_text'] = $allStatusesFinal;
+
 
                    $fetchQuery = "SELECT id FROM `users` WHERE email='$twitterEmailId'";
                    $resultFetchQuery = $conn->query($fetchQuery);
@@ -134,6 +136,7 @@
 
                    $conn->close();
                }
+
 	        }
 			catch( Exception $e )
 			{ 
@@ -164,5 +167,7 @@
                 echo "<hr /><h3>Trace</h3> <pre>" . $e->getTraceAsString() . "</pre>";
 
 			} 
-        }       
+      header("location: ../../index1.php");
+        } 
+
 ?>

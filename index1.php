@@ -55,7 +55,11 @@
       <div class="card-panel teal lighten-2 row center">
         <table>
           <tr>
-            <a class="waves-effect waves-light" href="hybridauth/hybridauth/login-sample.php?provider=Twitter"><img src="img/sign-in-with-twitter.png" ></a><br>
+            <a class="waves-effect waves-light" href="hybridauth/hybridauth/login-sample.php?provider=Twitter"><img src="img/sign-in-with-twitter.png" ></a>
+            <?php if(!empty($_SESSION['user_tweet_text'])) :?>
+              <img src="img/tick_16.png">
+             <?php endif; ?>
+            <br>
           </tr>
           <tr>
             <button><a href="tests/github_login/github_login.php" id="githubLogin" class="waves-effect waves-light "><img width="158"  src="img/GitHub_Logo.png"></a></button>
