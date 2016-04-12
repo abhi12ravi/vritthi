@@ -93,7 +93,7 @@
 		echo "<br> Repos URL:". $repos_url;
 		echo "<br> Orgs URL:". $orgs_url;
 
-		echo get_remote_data($repos_url);                                // GET request 
+		//echo get_remote_data($repos_url);                                // GET request 
 
 
 		$repoData = get_remote_data($repos_url);
@@ -103,7 +103,7 @@
 		echo "<br>";
 
 		echo "<br> JSON Decoded string:";
-		var_dump(json_decode($repoData));
+		var_dump(json_decode($repoData, true));
 		echo "<br>";
 
 		echo "<a href='logout.php'>Logout</a>";
