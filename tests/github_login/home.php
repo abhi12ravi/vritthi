@@ -102,6 +102,9 @@
 		print_r(gettype($repoData));
 		echo "<br>";
 
+		echo "<br> JSON Decoded string:";
+		var_dump(json_decode($repoData));
+		echo "<br>";
 
 		echo "<a href='logout.php'>Logout</a>";
 
