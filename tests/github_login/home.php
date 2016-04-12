@@ -45,7 +45,7 @@
 		print_r(gettype($urlFetch));
 		echo "<br>";
 
-		print_r($urlFetch);
+		echo $urlFetch;
 
 		echo "<a href='logout.php'>Logout</a>";
 
