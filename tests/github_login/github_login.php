@@ -6,11 +6,16 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
 {
 if(isset($_GET['code']))
 {
-$git = new githubApi($config);
-$git->getUserDetails();
-$_SESSION['github_data']=$git->getAllUserDetails();
-var_dump($_SESSION['github_data']);
-header("Location: home.php");
+	$git = new githubApi($config);
+	$git->getUserDetails();
+	$_SESSION['github_data']=$git->getAllUserDetails();
+	var_dump($_SESSION['github_data']);
+
+	
+
+	header("Location: home.php");
+
+
 }
 else
 {

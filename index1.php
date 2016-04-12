@@ -21,10 +21,15 @@
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">VRITTHI</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#">About Us</a></li>
+        <li><a href="terms-of-service.html">Terms of Service</a></li>
+        <li><a href="privacypolicy.htm">Privacy policy</a></li>
+
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
         <li><a href="#">About Us</a></li>
+        <li><a href="terms-of-service.html">Terms of Service</a></li>
+        <li><a href="privacypolicy.htm">Privacy policy</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
