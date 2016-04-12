@@ -58,7 +58,7 @@
             <a class="waves-effect waves-light" href="hybridauth/hybridauth/login-sample.php?provider=Twitter"><img src="img/sign-in-with-twitter.png" ></a><br>
           </tr>
           <tr>
-            <button onclick="doSomething();"><a href="tests/github_login/github_login.php" id="githubLogin" class="waves-effect waves-light "><img width="158"  src="img/GitHub_Logo.png"></a></button><br>
+            <a href="tests/github_login/github_login.php" id="githubLogin" class="waves-effect waves-light "><img width="158"  src="img/GitHub_Logo.png"></a><br>
           </tr>
           <!-- <tr>
             <a class="waves-effect waves-light "><img src="img/sign-in-linkedin.png"></a><br>
@@ -185,27 +185,6 @@
   <script type="text/javascript">
     var github = document.getElementById("githubLogin");
     console.log(github);
-
-    function doSomething () {
-      // body...
-      console.log("This function does something");
-
-      try{
-        OAuth.initialize('_DChAQqD1Wwxky6UpwOUryAewB4')  
-      } catch (err) {
-        alert('initialize error' + err);
-      }
-      
-      var provider = "github";
-
-      OAuth.popup('github').done(function(github) {
-        //make API calls with `facebook`
-      }).fail(function(err) {
-        //todo when the OAuth flow failed
-        alert ('Github error: ' + err);
-      });
-      
-    }
     
   </script>
 
