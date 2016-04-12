@@ -106,6 +106,12 @@
 		var_dump(json_decode($repoData, true));
 		echo "<br>";
 
+		foreach ($repoData as $key => $object) {
+		    echo "<br> Repo name: ".$object->name;
+		    echo "<hr>";
+		}
+
+
 		echo "<a href='logout.php'>Logout</a>";
 
 	}
