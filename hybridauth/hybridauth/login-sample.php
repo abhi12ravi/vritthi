@@ -82,7 +82,7 @@
                     $arrayObj = get_object_vars($verifyUser);
 
                     echo "<br>Printing arry of objects: <br>";
-                    print_r($arrayObj)
+                    print_r($arrayObj);
                                     
 
                    $servername = getenv('OPENSHIFT_MYSQL_DB_HOST');
