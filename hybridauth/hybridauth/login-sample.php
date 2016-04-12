@@ -108,14 +108,32 @@
 
                    $allStatusesFinal = str_replace( $remove, "", $allStatuses);
 
+                   $fetchQuery = "SELECT id FROM `users` WHERE email='$twitterEmailId'";
+                   $resultFetchQuery = $conn->query($fetchQuery);
 
-                   $insertNewUser = "INSERT INTO `users` (firstname, email, handle, text_tweet) VALUES ('$twitterFirstName', '$twitterEmailId','$twitterUserHandle', '$allStatusesFinal')";
-                   $resultNewUser = $conn->query($insertNewUser);
-                        if ($resultNewUser == TRUE) {
-                             echo "New record created successfully";
-                        } else {
-                             echo "Insert new user Error: " . $sql . "<br>" . $conn->error;
-                        }
+                   if(mysqli_num_rows($resultFetchQuery) == 0){ // new user
+                    $insertNewUser = "INSERT INTO `users` (firstname, email, handle, text_tweet) VALUES ('$twitterFirstName', '$twitterEmailId','$twitterUserHandle', '$allStatusesFinal')";
+                    $resultNewUser = $conn->query($insertNewUser);
+                    if ($resultNewUser == TRUE) {
+                      echo "New record created successfully";
+                    } else {
+                            echo "Insert new user Error: " . $sql . "<br>" . $conn->error;
+                         }
+                   }
+                   else{ //user already exists 
+                    $updateQuery = "UPDATE `users` SET text_tweet='$allStatusesFinal' WHERE email='$twitterEmailId'";
+                    $resultUpdateQuery = $conn->query($updateQuery);
+                    if ($resultUpdateQuery == TRUE) {
+                      echo "<br>Record updated successfully! <br>";
+                    } else {
+                            echo "<br> Update query Error: " . $sql . "<br>" . $conn->error;
+                         }
+                   } 
+
+                   
+                   
+
+                  
 
 
                    // $fetchExisting = "SELECT * from users WHERE email = '$userEmail'";
