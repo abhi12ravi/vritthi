@@ -135,6 +135,7 @@
                    }    
 
                    $conn->close();
+                   header("location: ../../index1.php");
                }
 
 	        }
@@ -167,6 +168,6 @@
                 echo "<hr /><h3>Trace</h3> <pre>" . $e->getTraceAsString() . "</pre>";
 
 			} 
-      header("location: ../../index1.php");
+      
     } 
 ?>
