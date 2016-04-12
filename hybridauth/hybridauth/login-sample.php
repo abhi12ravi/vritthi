@@ -78,6 +78,8 @@
                     echo "<br>";
 
                     print_r($verifyUser);
+
+                    $arrayObj = get_object_vars($verifyUser);
                                     
 
                    $servername = getenv('OPENSHIFT_MYSQL_DB_HOST');
