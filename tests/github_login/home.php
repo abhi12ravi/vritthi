@@ -108,9 +108,9 @@
 		print_r(gettype($arrayRepoData));
 		echo "<br>";
 
-		echo "<br> JSON Decoded string:";
-		var_dump($arrayRepoData);
-		echo "<br>";
+		// echo "<br> JSON Decoded string:";
+		// var_dump($arrayRepoData);
+		// echo "<br>";
 
 
 		echo "<br> Listing repos <br>";
@@ -127,8 +127,21 @@
 		//     echo "<hr>";
 		// }
 
+		$allLanguages = "";
 
-		echo "<a href='logout.php'>Logout</a>";
+		echo "<br> Looping through: <br>";
+
+		for ($i=0; $i <count($arrayRepoData) ; $i++) { 
+			# code...
+			print_r($arrayRepoData[i]['language']);
+			$allLanguages.= $arrayRepoData[i]['language'];
+
+			echo "<br>";
+
+		}
+
+
+		echo "<br> <a href='logout.php'>Logout</a>";
 
 	}
 ?>
