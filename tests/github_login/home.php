@@ -117,6 +117,11 @@
 
 		print_r($arrayRepoData[0]['name']);
 
+
+		echo "<br> Listing Prog langs <br>";
+
+		print_r($arrayRepoData['language']);
+
 		// foreach ($arrayRepoData as $key => $object) {
 		//     echo "<br> Repo name: ".$object->name;
 		//     echo "<hr>";
