@@ -77,12 +77,12 @@
                     print_r(gettype($verifyUser));
                     echo "<br>";
 
-                    print_r($verifyUser);
+                    //print_r($verifyUser);
 
                     $arrayObj = get_object_vars($verifyUser);
 
                     echo "<br>Printing arry of objects, email string = <br>";
-                    //print_r($arrayObj);
+                    print_r($arrayObj);
                     print_r($arrayObj["email"]);
                                     
 
