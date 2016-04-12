@@ -104,6 +104,10 @@
 
 		$arrayRepoData = json_decode($repoData, true);
 
+		echo "<br>Var type of arrayRepoData = ";
+		print_r(gettype($arrayRepoData));
+		echo "<br>";
+
 		echo "<br> JSON Decoded string:";
 		var_dump($arrayRepoData);
 		echo "<br>";
@@ -111,10 +115,12 @@
 
 		echo "<br> Listing repos <br>";
 
-		foreach ($arrayRepoData as $key => $object) {
-		    echo "<br> Repo name: ".$object->name;
-		    echo "<hr>";
-		}
+		print_r($arrayRepoData[0]['name']);
+
+		// foreach ($arrayRepoData as $key => $object) {
+		//     echo "<br> Repo name: ".$object->name;
+		//     echo "<hr>";
+		// }
 
 
 		echo "<a href='logout.php'>Logout</a>";
