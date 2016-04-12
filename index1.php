@@ -72,19 +72,18 @@
             <a class="waves-effect waves-light "><img src="img/sign-in-linkedin.png"></a><br>
           </tr> -->
           <tr>
+
+
             <div class="input-field col s4 offset-s4">
-              <i class="material-icons prefix">account_circle</i>
-              <input id="icon_prefix" type="text" class="validate">
-              <label class="black-text" for="icon_prefix">SPOJ Number of problems solved</label>
+              <form action="spoj-crawl.php" method="get">
+                <i class="material-icons prefix">account_circle</i>              
+                <input id="icon_prefix" type="text" name="spojHandle" class="validate">
+                <label class="black-text" for="icon_prefix">SPOJ Handle</label>
+                <input type="submit">  
+              </form>
+              
             </div><br>
-          </tr>
-          <tr>
-            <div class="input-field col s4 offset-s4">
-              <i class="material-icons prefix">account_circle</i>
-              <input id="icon_prefix" type="text" class="validate">
-              <label class="black-text" for="icon_prefix">SPOJ Number of solutions submitted</label>
-            </div><br>
-          </tr>
+          </tr>            
         </table>
       </div>
 

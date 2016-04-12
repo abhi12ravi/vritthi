@@ -72,6 +72,8 @@ function get_remote_data($url, $post_paramtrs = false) {
 
         //print_r($links);
 
+        echo "<b> SPOJ - fetch user ranks</b>";
+
         echo "<br> <b> Number of challenges solved: ". $links[0];
 
         echo "<br> <b> Number of problems submitted: ". $links[1];
