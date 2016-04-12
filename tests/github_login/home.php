@@ -21,7 +21,7 @@
 		$repos_url = $userdata->repos_url;
 		$orgs_url = $userdata->organizations_url;
 
-		var_dump($userdata);
+		//var_dump($userdata);
 
 		$q=mysqli_query($connection,"SELECT id FROM github_users WHERE email='$email'");
 		if(mysqli_num_rows($c) == 0)

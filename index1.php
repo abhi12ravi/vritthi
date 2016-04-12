@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php 
 
+  session_start();
+  
+ ?>
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -54,7 +58,7 @@
             <a class="waves-effect waves-light" href="hybridauth/hybridauth/login-sample.php?provider=Twitter"><img src="img/sign-in-with-twitter.png" ></a><br>
           </tr>
           <tr>
-            <button onclick="doSomething();"><a href="hybridauth-2.6.0/hybridauth/github-login.php?provider=Github" id="githubLogin" class="waves-effect waves-light "><img width="158"  src="img/GitHub_Logo.png"></a></button><br>
+            <button onclick="doSomething();"><a href="tests/github_login/github_login.php" id="githubLogin" class="waves-effect waves-light "><img width="158"  src="img/GitHub_Logo.png"></a></button><br>
           </tr>
           <!-- <tr>
             <a class="waves-effect waves-light "><img src="img/sign-in-linkedin.png"></a><br>
