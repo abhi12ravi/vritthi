@@ -71,6 +71,11 @@
 
                     //print_r($userStatuses);
 
+                    $verifyUser = $authProvider->api()->get('account/verify_credentials.json');
+
+                    echo "<br>Var type of $userStatuses = ";
+                    print_r(gettype($verifyUser));
+                    echo "<br>";
                                     
 
                    $servername = getenv('OPENSHIFT_MYSQL_DB_HOST');
